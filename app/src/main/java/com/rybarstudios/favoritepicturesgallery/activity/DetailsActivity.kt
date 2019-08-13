@@ -19,8 +19,15 @@ class DetailsActivity : AppCompatActivity() {
 
         val intent = intent
         data = intent.getSerializableExtra("object") as ImageData
+        val context = this
 
         this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+
+        image.setOnClickListener {
+            val intent = Intent(context, FullscreenActivity::class.java)
+            intent.putExtra("image", data?.fileUriString)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {
