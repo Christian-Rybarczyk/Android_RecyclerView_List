@@ -3,17 +3,18 @@ package com.rybarstudios.favoritepicturesgallery.model
 import android.net.Uri
 import java.io.Serializable
 
-class ImageData(val imageUri: Uri) : Serializable {
+class ImageData(fullPhotoUri: Uri) : Serializable {
     var name: String? = null
-    val imageUriString: String
     var description: String? = null
+    val fileUriString: String
 
-    val getImageUri: Uri
-        get() = Uri.parse(imageUriString)
+    val fileUri: Uri
+        get() = Uri.parse(fileUriString)
 
     init {
-        imageUriString = imageUri.toString()
-        name = imageUri.toString()
-        description = ""
+        this.fileUriString = fullPhotoUri.toString()
+        val path = fullPhotoUri.path!!.split("/".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+        this.name = path[path.size - 1]
+        this.description = ""
     }
 }

@@ -1,67 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activity.DetailsActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".activity.DetailsActivity">
 
     <ImageView
-            android:id="@+id/details_image_view"
-            android:layout_width="0dp"
-            android:layout_height="275dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:scaleType="centerInside"/>
-    <TextView
-            android:text="@string/name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/hardcoded_image_name" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/details_image_view" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:textStyle="bold" android:textSize="20sp"/>
-    <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_view_image_name" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/hardcoded_image_name" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="@string/uri"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/hardcoded_image_uri" android:textStyle="bold"
-            android:textSize="20sp" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/text_view_image_name"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_view_image_uri" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/hardcoded_image_uri" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-    <TextView
-            android:text="@string/description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/hardcoded_description" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_image_uri" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:textStyle="bold" android:textSize="20sp"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText_description"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/hardcoded_description"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:id="@+id/image"
+            android:src="@android:drawable/alert_dark_frame"
+            android:scaleType="fitCenter"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Name:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <TextView
+            android:id="@+id/text_name"
+            android:textSize="24sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <EditText
+            android:visibility="gone"
+            android:id="@+id/edit_name"
+            android:textSize="24sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <TextView
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="URI:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <TextView
+            android:id="@+id/text_uri"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <TextView
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Description:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <TextView
+            android:layout_weight="1"
+            android:id="@+id/text_description"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+    <EditText
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:gravity="top"
+            android:id="@+id/edit_description"
+            android:maxLines="20"
+            android:scrollbars="vertical"
+            android:textSize="24sp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+</LinearLayout>

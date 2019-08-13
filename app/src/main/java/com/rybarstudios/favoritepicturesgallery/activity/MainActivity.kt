@@ -9,14 +9,16 @@ import com.rybarstudios.favoritepicturesgallery.R
 import com.rybarstudios.favoritepicturesgallery.adapter.RecyclerViewAdapter
 import com.rybarstudios.favoritepicturesgallery.model.ImageData
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.Serializable
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Serializable {
 
     var imageList: ArrayList<ImageData> = ArrayList()
     var adapter: RecyclerViewAdapter? = null
 
     companion object {
         const val IMAGE_REQUEST_CODE = 65
+        const val EDIT_IMAGE_REQUEST_CODE = 42
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +53,15 @@ class MainActivity : AppCompatActivity() {
                 val imageUri = data.data
                 imageList.add(ImageData(imageUri!!))
                 adapter!!.notifyItemInserted(imageList.size - 1)
+            }
+        } else if (requestCode == EDIT_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+            // Make sure the request was successful
+            val returnedData = data!!.getSerializableExtra("object") as ImageData
+
+            for (i in imageList.indices) {
+                if (imageList[i].fileUriString == returnedData.fileUriString) {
+                    imageList[i] = returnedData
+                }
             }
         }
         refreshListView()
