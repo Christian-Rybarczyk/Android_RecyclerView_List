@@ -1,7 +1,8 @@
-package com.rybarstudios.favoritepicturesgallery
+package com.rybarstudios.favoritepicturesgallery.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rybarstudios.favoritepicturesgallery.R
 
 class MainActivity : AppCompatActivity() {
 
