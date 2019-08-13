@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Favorite Pictures Gallery</string>
+    <string name="add_image">Add Image</string>
+    <string name="name">Image name:</string>
+    <string name="uri">Image URI:</string>
+    <string name="description">Description:</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
